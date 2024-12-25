@@ -21,7 +21,7 @@ const About = () => {
         animate={{ y: 0, opacity: 1 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1, ease: "linear" }}
-        className="text-blue-200 font-exo font-200 mt-2 mr-5 mb-4 text-lg tracking-wider overflow-auto scroll-smooth hide-scrollbar"
+        className="text-blue-200 font-exo font-200 mt-2 mr-5 mb-4 text-lg tracking-wider overflow-auto scroll-smooth hide-scrollbar backdrop-blur-sm"
       >
         I&apos;m a <span className="italic font-600">Frontend Web Developer</span>{" "}
         specializing in building and managing the front-end of websites and web
