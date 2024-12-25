@@ -1,7 +1,6 @@
 import  { useState, useEffect, useRef } from "react";
 import NET from "vanta/dist/vanta.net.min";
 import * as THREE from "three";
-import Header from "./components/Header";
 import Navbar from "./components/Navbar";
 const Home = () => {
   const [vantaEffect, setVantaEffect] = useState(0);
@@ -36,7 +35,6 @@ const Home = () => {
       className="border m-4 border-tertiary h-[94vh] overflow-hidden"
     >
       <Navbar/>
-      <Header/>
     </div>
   );
 };

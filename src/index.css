@@ -2,6 +2,82 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
-  @apply bg-primary
+body {
+  @apply bg-primary;
+}
+
+.exo-2-100 {
+  font-family: "Exo 2", serif;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
+}
+
+.exo-2-200 {
+  font-family: "Exo 2", serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+}
+
+.exo-2-300 {
+  font-family: "Exo 2", serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.exo-2-400 {
+  font-family: "Exo 2", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.exo-2-500 {
+  font-family: "Exo 2", serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.exo-2-600 {
+  font-family: "Exo 2", serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.exo-2-700 {
+  font-family: "Exo 2", serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.exo-2-800 {
+  font-family: "Exo 2", serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: normal;
+}
+
+.exo-2-900 {
+  font-family: "Exo 2", serif;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.hide-scrollbar {
+  overflow-y: auto; /* Enables scrolling */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Hides the scrollbar in Chrome, Edge, and Safari */
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none; /* Hides the scrollbar in Internet Explorer 10+ */
+  scrollbar-width: none; /* Hides the scrollbar in Firefox */
 }
