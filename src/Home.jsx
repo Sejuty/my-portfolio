@@ -1,6 +1,8 @@
 import  { useState, useEffect, useRef } from "react";
 import NET from "vanta/dist/vanta.net.min";
 import * as THREE from "three";
+import Header from "./components/Header";
+import Navbar from "./components/Navbar";
 const Home = () => {
   const [vantaEffect, setVantaEffect] = useState(0);
   const vantaRef = useRef(null);
@@ -11,6 +13,7 @@ const Home = () => {
         NET({
           el: vantaRef.current,
           spacing:16,
+          color:0x353795,
           THREE: THREE,
           mouseControls: true,
           touchControls: true,
@@ -30,8 +33,11 @@ const Home = () => {
   return (
     <div
       ref={vantaRef}
-      className="border m-4 border-secondary h-[94vh] overflow-hidden"
-    ></div>
+      className="border m-4 border-tertiary h-[94vh] overflow-hidden"
+    >
+      <Navbar/>
+      <Header/>
+    </div>
   );
 };
 

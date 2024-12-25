@@ -1,0 +1,27 @@
+@font-face {
+  font-family: "Sabaling";
+  src: url("./Sabaling-6Rv2v.otf") format("opentype");
+  font-weight: 200; 
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Sabaling";
+  src: url("./Sabaling-Bold.otf") format("opentype"); /* Assuming you have a bold version */
+  font-weight: 700; /* Bold weight */
+  font-style: normal; /* Regular style */
+}
+
+@font-face {
+  font-family: "Sabaling";
+  src: url("./Sabaling-Italic.otf") format("opentype"); /* Assuming you have an italic version */
+  font-weight: 400; /* Normal weight */
+  font-style: italic; /* Italic style */
+}
+
+@font-face {
+  font-family: "Sabaling";
+  src: url("./Sabaling-BoldItalic.otf") format("opentype"); /* Assuming you have a bold italic version */
+  font-weight: 700; /* Bold weight */
+  font-style: italic; /* Italic style */
+}
