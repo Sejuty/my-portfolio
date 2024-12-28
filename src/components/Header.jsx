@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
+import About from "./About";
 
 export default function Header() {
   return (
-    <div className="flex flex-col h-full justify-end pl-6 pb-16">
+    <div className="flex flex-col h-full justify-end px-8 pb-16 mt-20 lg:mt-0 ">
       <div>
         <motion.h1
           style={{
@@ -20,10 +21,11 @@ export default function Header() {
         initial={{ y: 25, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 2, ease: "easeInOut" }}
-        className="text-tertiary pt-2 font-exo font-400 text-2xl tracking-wide"
+        className="text-tertiary pt-2 font-exo font-400 text-2xl tracking-wide pb-12"
       >
         Frontend Web Developer
       </motion.p>
+      <About />
     </div>
   );
 }
