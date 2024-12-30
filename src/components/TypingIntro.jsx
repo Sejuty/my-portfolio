@@ -64,7 +64,7 @@ const TypingIntro = () => {
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className={`inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors ${
+      className={`inline-flex items-center text-blue-400  hover:font-400 transition-colors ${
         isVisible ? 'cursor-pointer' : 'pointer-events-none'
       }`}
     >
@@ -82,7 +82,7 @@ const TypingIntro = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.2 }}
-        className="text-blue-200 font-exo font-normal tracking-wide"
+        className="text-blue-200 font-exo font-200 tracking-wide"
       >
         <p className="text-lg leading-relaxed break-words">
           {text[0]}

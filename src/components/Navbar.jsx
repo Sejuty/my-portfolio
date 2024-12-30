@@ -1,41 +1,82 @@
-"use client";
-
-import { useState } from "react";
+/* eslint-disable react/prop-types */
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import About from "./About";
-import Skills from "./Skills";
 import Projects from "./Projects";
+import Contact from "./Contact";
 import Header from "./Header";
 
 export default function Navbar() {
   const [activeSection, setActiveSection] = useState("home");
+  const [isScrolling, setIsScrolling] = useState(false);
 
+  const sections = ["home", "projects", "contact"];
   const components = {
     home: Header,
-    about: About,
-    skills: Skills,
-    projects: Projects,
+    projects: (props) => <Projects isScrolling={props.isScrolling} />,
+    contact: Contact,
   };
 
-  const ActiveComponent = components[activeSection];
+  useEffect(() => {
+    const observers = {};
+    sections.forEach((section) => {
+      const element = document.getElementById(section);
+      if (!element) return;
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              setActiveSection(section);
+              setIsScrolling(true);
+              // Reset isScrolling after animation completes
+              setTimeout(() => {
+                setIsScrolling(false);
+              }, 1000); // Adjust timing based on your scroll animation duration
+            }
+          });
+        },
+        {
+          rootMargin: "-50% 0px -50% 0px",
+          threshold: 0
+        }
+      );
+
+      observer.observe(element);
+      observers[section] = observer;
+    });
+
+    return () => {
+      Object.values(observers).forEach((observer) => observer.disconnect());
+    };
+  }, []);
+
+  const scrollToSection = (section) => {
+    const element = document.getElementById(section);
+    if (element) {
+      setIsScrolling(true);
+      element.scrollIntoView({ behavior: "smooth" });
+      // Reset isScrolling after animation completes
+      setTimeout(() => {
+        setIsScrolling(false);
+      }, 1000); // Adjust timing based on your scroll animation duration
+    }
+  };
 
   return (
     <>
-      <nav className="absolute top-0 right-6 z-10 transition-colors duration-300">
+      <nav className={`fixed top-4 right-6 z-10 transition-colors duration-300 bg-background/80 `}>
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center py-4">
             <div className="flex space-x-14 font-exo">
-              {["home", "skills", "projects"].map((item) => (
+              {sections.map((item) => (
                 <motion.button
                   key={item}
-                  onClick={() => {
-                    setActiveSection(item);
-                  }}
+                  onClick={() => scrollToSection(item)}
                   className={`capitalize ${
                     activeSection === item
-                      ? "text-secondary "
-                      : "text-tertiary "
-                  } hover:text-secondary  transition-colors duration-300`}
+                      ? "text-secondary"
+                      : "text-tertiary"
+                  } hover:text-secondary transition-colors duration-300`}
                   whileHover={{
                     scale: 1.1,
                     transition: { duration: 0.2 },
@@ -49,12 +90,20 @@ export default function Navbar() {
         </div>
       </nav>
 
-      <motion.div
-        transition={{ duration: 0.3, delay: 1, ease: "linear" }}
-        className="h-full"
-      >
-        <ActiveComponent />
-      </motion.div>
+      <div className="h-full overflow-y-auto snap-y snap-mandatory hide-scrollbar">
+        {sections.map((section) => {
+          const Component = components[section];
+          return (
+            <div
+              key={section}
+              id={section}
+              className="h-screen snap-start"
+            >
+              <Component isScrolling={isScrolling} />
+            </div>
+          );
+        })}
+      </div>
     </>
   );
 }

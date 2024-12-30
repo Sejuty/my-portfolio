@@ -5,8 +5,8 @@ import TypingIntro from "./TypingIntro";
 const About = () => {
   // Animation variants for fade up animation
   const fadeUpVariants = {
-    hidden: { y: 100, opacity: 0 },
-    visible: { y: 0, opacity: 1 },
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 },
   };
 
   // Links data for better maintainability
@@ -25,7 +25,7 @@ const About = () => {
   );
 
   return (
-    <div className="flex flex-col justify-center overflow-y-auto h-fit mb-10 hide-scrollbar">
+    <div className="flex flex-col justify-center overflow-y-auto h-fit hide-scrollbar">
       <motion.div
         variants={fadeUpVariants}
         initial="hidden"

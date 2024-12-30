@@ -35,6 +35,8 @@ const Home = () => {
       className="border m-4 border-tertiary h-[94vh] overflow-hidden"
     >
       <Navbar/>
+      
+      
     </div>
   );
 };

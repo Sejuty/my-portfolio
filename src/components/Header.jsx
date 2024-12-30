@@ -12,7 +12,7 @@ export default function Header() {
           initial={{ width: 0 }}
           animate={{ width: "100%" }}
           transition={{ duration: 3, ease: "easeInOut" }}
-          className="text-[60px] text-secondary font-exo font-normal tracking-wide lg:whitespace-nowrap"
+          className="text-[50px] 2xl:text-[60px] text-secondary font-exo font-normal tracking-wide lg:whitespace-nowrap"
         >
           Nishat Tafannum
         </motion.h1>
