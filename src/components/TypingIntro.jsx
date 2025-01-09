@@ -64,11 +64,11 @@ const TypingIntro = () => {
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className={`inline-flex items-center text-blue-400  hover:font-400 transition-colors ${
+      className={`inline-flex items-center text-blue-400  hover:font-400 transition-colors text-sm sm:text-lg ${
         isVisible ? 'cursor-pointer' : 'pointer-events-none'
       }`}
     >
-      {isVisible && <Icon className="w-4 h-4 mr-1" />}
+      {isVisible && <Icon className="w-2.5 sm:w-4 h-2.5 sm:h-4 mr-1" />}
       {children}
     </a>
   );
