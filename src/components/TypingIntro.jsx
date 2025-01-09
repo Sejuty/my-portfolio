@@ -84,7 +84,7 @@ const TypingIntro = () => {
         transition={{ duration: 0.2 }}
         className="text-blue-200 font-exo font-200 tracking-wide"
       >
-        <p className="text-lg leading-relaxed break-words">
+        <p className="text-sm sm:text-lg leading-relaxed break-words">
           {text[0]}
           <SocialLink 
             href="https://twitter.com/yourusername" 

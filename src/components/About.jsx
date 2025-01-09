@@ -3,13 +3,21 @@ import { motion } from "framer-motion";
 import TypingIntro from "./TypingIntro";
 
 const About = () => {
-  // Animation variants for fade up animation
   const fadeUpVariants = {
     hidden: { opacity: 0 },
     visible: { opacity: 1 },
   };
 
-  // Links data for better maintainability
+  const backdropVariants = {
+    hidden: { 
+      opacity: 0,
+      backdropFilter: "blur(0px)",
+    },
+    visible: { 
+      opacity: 1,
+      backdropFilter: "blur(3px)",
+    },
+  };
 
   const StyledLink = ({ href, children, isExternal }) => (
     <a
@@ -25,14 +33,24 @@ const About = () => {
   );
 
   return (
-    <div className="flex flex-col justify-center overflow-y-auto h-fit hide-scrollbar">
+    <motion.div 
+      className="flex flex-col lg:h-fit h-[40vh] overflow-x-clip overflow-y-auto hide-scrollbar relative"
+      variants={backdropVariants}
+      initial="hidden"
+      animate="visible"
+      transition={{ 
+        duration: 1.5,
+        delay: 2, // Appears after the text animation
+        ease: "easeInOut"
+      }}
+    >
       <motion.div
         variants={fadeUpVariants}
         initial="hidden"
         animate="visible"
         whileInView={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1, ease: "linear" }}
-        className="text-blue-200 font-exo font-200 mt-2 mr-5 mb-4 text-lg tracking-wider"
+        className="text-blue-200 font-exo font-200 mt-2 mr-5 mb-4 text-sm sm:text-lg tracking-wider"
       >
         <div>
           I&apos;m a{" "}
@@ -44,7 +62,7 @@ const About = () => {
       </motion.div>
 
       <TypingIntro />
-    </div>
+    </motion.div>
   );
 };
 
