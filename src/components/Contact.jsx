@@ -1,5 +1,4 @@
 import { Mail, Linkedin, Github, Phone } from "lucide-react";
-import { motion } from "framer-motion";
 
 const Contact = () => {
   const contacts = [
@@ -30,22 +29,14 @@ const Contact = () => {
   ];
 
   return (
-    <div className="h-full w-full flex flex-col justify-end items-start pb-28 pl-12 gap-5">
-      {/* <h3 className="text-lg font-medium mb-4">Contact</h3> */}
-      <div>
-        <motion.h1
-          style={{
-            overflow: "hidden",
-          }}
-          initial={{ width: 0 }}
-          animate={{ width: "100%" }}
-          transition={{ duration: 3, ease: "easeInOut" }}
-          className="text-[50px] 2xl:text-[60px] text-secondary font-exo font-normal tracking-wide lg:whitespace-nowrap"
-        >
-          Contact me! 
-        </motion.h1>
+    <div className="min-h-screen w-full flex flex-col justify-end items-start p-4 sm:p-6 md:p-8 lg:pb-28 lg:pl-12 gap-3 sm:gap-4 lg:gap-5">
+      <div className="w-full">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[50px] text-secondary font-exo font-normal tracking-wide overflow-hidden animate-slide-right">
+          Contact me!
+        </h1>
       </div>
-      <div className="flex justify-center gap-5 text-blue-200 text-md font-exo ">
+      
+      <div className="w-full flex flex-col sm:flex-row flex-wrap gap-4 text-blue-200 text-sm sm:text-base font-exo my-4">
         {contacts.map((contact) => (
           <a
             key={contact.label}
@@ -55,7 +46,7 @@ const Contact = () => {
             <span className="text-gray-400 group-hover:text-secondary">
               {contact.icon}
             </span>
-            <span className="ml-3">{contact.value}</span>
+            <span className="ml-2 sm:ml-3">{contact.value}</span>
           </a>
         ))}
       </div>

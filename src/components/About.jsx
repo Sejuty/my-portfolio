@@ -34,7 +34,7 @@ const About = () => {
 
   return (
     <motion.div 
-      className="flex flex-col lg:h-fit h-[40vh] overflow-x-clip overflow-y-auto hide-scrollbar relative"
+      className="flex flex-col lg:h-fit h-[45vh] overflow-x-clip overflow-y-auto hide-scrollbar relative"
       variants={backdropVariants}
       initial="hidden"
       animate="visible"
