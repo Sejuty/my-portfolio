@@ -21,9 +21,10 @@ export const AboutData =
 export const projectsData =  [
   {
     id: 1,
-    title: "Project 1",
-    description: "A brief description of Project 1",
-    link: "https://project1.com",
+    title: "Pi-Utilities",
+    description: "A comprehensive, web-based Office Management System designed for organizations to efficiently manage their meal services and workplace allocation.",
+    contribution: "Frontend ( Leafletjs, Nextjs, Tailwind, RTK Query)",
+    worked_on: ["Refactored and optimized the Meal Management module to enhance performance and maintainability."]
   },
   {
     id: 2,
