@@ -81,3 +81,64 @@ body {
   -ms-overflow-style: none; /* Hides the scrollbar in Internet Explorer 10+ */
   scrollbar-width: none; /* Hides the scrollbar in Firefox */
 }
+
+.card-slider-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+}
+
+.card-slider-track {
+  display: flex;
+  transition: transform 0.3s ease-in-out;
+  width: 100%;
+}
+
+.card-slider-card {
+  padding: 0.5rem;
+  box-sizing: border-box;
+}
+
+.card-slider-image {
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.card-slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+  padding: 0.5rem;
+  cursor: pointer;
+  z-index: 2;
+  border-radius: 50%;
+}
+
+.card-slider-btn:hover {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.card-slider-dot-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem;
+}
+
+.card-slider-dot-btn svg {
+  width: 1rem;
+  height: 1rem;
+  color: gray;
+}
+
+.card-slider-dot-btn:hover svg,
+.card-slider-dot-btn:focus svg {
+  color: black;
+}

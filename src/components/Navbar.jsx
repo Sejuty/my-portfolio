@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import Projects from "./Projects";
-import Contact from "./Contact";
-import Header from "./Header";
+import Projects from "../layouts/Projects";
+import Contact from "../layouts/Contact";
+import Header from "../layouts/Header";
 
 export default function Navbar() {
   const [activeSection, setActiveSection] = useState("home");
@@ -37,7 +37,7 @@ export default function Navbar() {
         },
         {
           rootMargin: "-50% 0px -50% 0px",
-          threshold: 0
+          threshold: 0,
         }
       );
 
@@ -64,42 +64,35 @@ export default function Navbar() {
 
   return (
     <>
-     <nav className="fixed top-4 right-6 z-10 transition-colors duration-300 bg-background/80">
-  <div className="container mx-auto px-4">
-    <div className="flex justify-between items-center py-4">
-      <div className="flex space-x-6 sm:space-x-10 md:space-x-14 font-exo">
-        {sections.map((item) => (
-          <motion.button
-            key={item}
-            onClick={() => scrollToSection(item)}
-            className={`capitalize text-sm sm:text-base md:text-lg ${
-              activeSection === item
-                ? "text-secondary"
-                : "text-tertiary"
-            } hover:text-secondary transition-colors duration-300`}
-            whileHover={{
-              scale: 1.1,
-              transition: { duration: 0.2 },
-            }}
-          >
-            {item}
-          </motion.button>
-        ))}
-      </div>
-    </div>
-  </div>
-</nav>
-
+      <nav className="fixed top-4 right-6 z-10 transition-colors duration-300 bg-background/80">
+        <div className="container mx-auto px-4">
+          <div className="flex justify-between items-center py-4">
+            <div className="flex space-x-6 sm:space-x-10 md:space-x-14 font-exo">
+              {sections.map((item) => (
+                <motion.button
+                  key={item}
+                  onClick={() => scrollToSection(item)}
+                  className={`capitalize text-sm sm:text-base md:text-lg ${
+                    activeSection === item ? "text-secondary" : "text-tertiary"
+                  } hover:text-secondary transition-colors duration-300`}
+                  whileHover={{
+                    scale: 1.1,
+                    transition: { duration: 0.2 },
+                  }}
+                >
+                  {item}
+                </motion.button>
+              ))}
+            </div>
+          </div>
+        </div>
+      </nav>
 
       <div className="h-full overflow-y-auto snap-y snap-mandatory hide-scrollbar">
         {sections.map((section) => {
           const Component = components[section];
           return (
-            <div
-              key={section}
-              id={section}
-              className="h-screen snap-start"
-            >
+            <div key={section} id={section} className="h-screen snap-start">
               <Component isScrolling={isScrolling} />
             </div>
           );
