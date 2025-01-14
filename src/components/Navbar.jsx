@@ -92,7 +92,7 @@ export default function Navbar() {
         {sections.map((section) => {
           const Component = components[section];
           return (
-            <div key={section} id={section} className="h-screen snap-start">
+            <div key={section} id={section} className="h-[94vh] snap-start">
               <Component isScrolling={isScrolling} />
             </div>
           );
