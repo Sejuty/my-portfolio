@@ -3,7 +3,7 @@ import About from "./About";
 
 export default function Header() {
   return (
-    <div className="flex flex-col h-full lg:justify-end px-8 py-6 ">
+    <div className="flex flex-col h-full lg:justify-end px-3 lg:px-8 py-6 ">
       <div className="flex flex-col justify-end flex-1 lg:block lg:flex-none mt-16 lg:mt-0">
         <div>
           <motion.h1

@@ -4,7 +4,7 @@ const Projects = () => {
 
 
   return (
-    <div className="w-full h-[94vh] overflow-hidden">
+    <div className="w-full h-[94vh] overflow-y-auto hide-scrollbar">
       <CardSlider />
     </div>
   );

@@ -1,4 +1,5 @@
 import { useRef, useState, useEffect } from 'react';
+import { projectsData } from '../assets/data';
 
 const CardSlider = () => {
   const scrollContainerRef = useRef(null);
@@ -7,14 +8,26 @@ const CardSlider = () => {
   const [scrollLeft, setScrollLeft] = useState(0);
   const [activeSlide, setActiveSlide] = useState(0);
 
-  const projects = [
-    { id: 1, title: "Project 1", color: "bg-blue-500" },
-    { id: 2, title: "Project 2", color: "bg-green-500" },
-    { id: 3, title: "Project 3", color: "bg-purple-500" },
-    { id: 4, title: "Project 4", color: "bg-red-500" },
-    { id: 5, title: "Project 5", color: "bg-yellow-500" },
-  ];
+  // Touch handling
+  const handleTouchStart = (e) => {
+    setIsDragging(true);
+    const slider = scrollContainerRef.current;
+    const touch = e.touches[0];
+    setStartX(touch.pageX - slider.offsetLeft);
+    setScrollLeft(slider.scrollLeft);
+  };
 
+  const handleTouchMove = (e) => {
+    if (!isDragging) return;
+    e.preventDefault();
+    const slider = scrollContainerRef.current;
+    const touch = e.touches[0];
+    const x = touch.pageX - slider.offsetLeft;
+    const walk = (x - startX) * 2;
+    slider.scrollLeft = scrollLeft - walk;
+  };
+
+  // Mouse handling
   const handleMouseDown = (e) => {
     setIsDragging(true);
     const slider = scrollContainerRef.current;
@@ -63,29 +76,50 @@ const CardSlider = () => {
   };
 
   return (
-    <div className="w-full h-screen bg-gray-900 relative">
+    <div className="w-full h-full font-exo relative pt-8 md:pt-12">
       <div 
         ref={scrollContainerRef}
-        className="overflow-x-auto h-full cursor-grab active:cursor-grabbing select-none snap-x snap-mandatory"
+        className="h-[calc(100%-2.5rem)] cursor-grab active:cursor-grabbing select-none snap-x snap-mandatory overflow-x-hidden touch-pan-x hide-scrollbar"
         onMouseDown={handleMouseDown}
         onMouseLeave={handleMouseLeave}
         onMouseUp={handleMouseUp}
         onMouseMove={handleMouseMove}
-        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleMouseUp}
       >
         <div className="flex h-full">
-          {projects.map((project) => (
+          {projectsData.map((project) => (
             <div 
               key={project.id}
-              className={`flex-shrink-0 w-screen h-full ${project.color} snap-center`}
+              className="w-full flex-shrink-0 h-full snap-center"
             >
-              <div className="flex flex-col items-center justify-center h-full p-8">
-                <h2 className="text-4xl font-bold text-white mb-4">{project.title}</h2>
-                <div className="max-w-2xl">
-                  <p className="text-xl text-white/90">
-                    This is a full-screen section for {project.title}. Add your project details, 
-                    images, and other content here.
+              <div className="flex flex-col h-full justify-center p-4 sm:p-6 md:p-8 overflow-y-auto hide-scrollbar">
+                <h2 className="text-xl sm:text-2xl font-bold text-secondary mb-4 sm:mb-6 text-center">
+                  {project.title}
+                </h2>
+                <div className="space-y-4 sm:space-y-6 w-full">
+                  <p className="text-sm sm:text-base md:text-lg text-blue-200 font-exo font-200">
+                    {project?.description}
                   </p>
+                  <div className="bg-white/10 p-3 sm:p-4 rounded-lg">
+                    <h3 className="text-base sm:text-lg font-semibold text-white mb-2">
+                      Technical Contribution
+                    </h3>
+                    <p className="text-sm sm:text-base text-white/80">
+                      {project?.contribution}
+                    </p>
+                  </div>
+                  <div className="bg-white/10 p-3 sm:p-4 rounded-lg">
+                    <h3 className="text-base sm:text-lg font-semibold text-white mb-2">
+                      Key Achievements
+                    </h3>
+                    <ul className="list-disc list-inside text-sm sm:text-base text-white/80">
+                      {project?.worked_on.map((work, index) => (
+                        <li key={index} className="ml-2 sm:ml-4">{work}</li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
@@ -94,12 +128,12 @@ const CardSlider = () => {
       </div>
       
       {/* Dot indicators */}
-      <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 flex space-x-2">
-        {projects.map((_, index) => (
+      <div className="absolute bottom-3 sm:bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+        {projectsData.map((_, index) => (
           <button
             key={index}
             onClick={() => scrollToSlide(index)}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+            className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${
               activeSlide === index ? 'bg-white scale-125' : 'bg-white/50 hover:bg-white/70'
             }`}
             aria-label={`Go to slide ${index + 1}`}

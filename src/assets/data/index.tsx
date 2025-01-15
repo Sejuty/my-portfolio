@@ -24,18 +24,6 @@ export const projectsData =  [
     title: "Pi-Utilities",
     description: "A comprehensive, web-based Office Management System designed for organizations to efficiently manage their meal services and workplace allocation.",
     contribution: "Frontend ( Leafletjs, Nextjs, Tailwind, RTK Query)",
-    worked_on: ["Refactored and optimized the Meal Management module to enhance performance and maintainability."]
-  },
-  {
-    id: 2,
-    title: "Project 2",
-    description: "A brief description of Project 2",
-    link: "https://project2.com",
-  },
-  {
-    id: 3,
-    title: "Project 3",
-    description: "A brief description of Project 3",
-    link: "https://project3.com",
-  },
+    worked_on: ["Refactored and optimized the Meal Management module to enhance performance and maintainability.", "Developed a Floor Management module using Leaflet.js, enabling administrators to manage organizational infrastructure effectively.", "Tracking building locations, floorplans, and employee seating arrangements.", "Creating, updating, and deleting floors, seats, and workspaces.", "Assigning and unassigning seats and workspaces with interactive floorplan visuals."]
+  }
 ]
