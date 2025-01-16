@@ -30,7 +30,7 @@ const Contact = () => {
   return (
     <div className="h-full w-full flex flex-col justify-end items-start p-4 sm:p-6 md:p-8 lg:pl-12 gap-2 lg:gap-4">
       <div className="w-full">
-        <h1 className="text-3xl sm:text-3xl md:text-4xl lg:text-[50px] text-secondary font-exo font-normal tracking-wide overflow-hidden animate-slide-right">
+        <h1 className="text-3xl sm:text-3xl md:text-4xl lg:text-[40px] text-secondary font-exo font-normal tracking-wide overflow-hidden animate-slide-right">
           Contact me!
         </h1>
       </div>

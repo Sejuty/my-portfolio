@@ -88,13 +88,13 @@ const CardSlider = () => {
         onTouchMove={handleTouchMove}
         onTouchEnd={handleMouseUp}
       >
-        <div className="flex h-full ">
+        <div className="flex sm:h-full items-center">
           {projectsData.map((project) => (
             <div 
               key={project.id}
-              className="w-full flex-shrink-0 h-full snap-center"
+              className="w-full  flex-shrink-0 snap-center"
             >
-              <div className="flex flex-col h-fit justify-center p-4 sm:p-6 md:p-8 overflow-y-auto hide-scrollbar pt-4">
+              <div className="flex flex-col justify-center p-4 sm:p-6 md:p-8 overflow-y-auto hide-scrollbar pt-4">
                 <h2 className="text-xl sm:text-2xl font-bold text-secondary mb-3 lg:mb-6 text-center">
                   {project.title}
                 </h2>
