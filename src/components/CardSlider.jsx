@@ -76,10 +76,10 @@ const CardSlider = () => {
   };
 
   return (
-    <div className="w-full h-full font-exo relative pt-12">
+    <div className="h-full font-exo relative pt-12">
       <div 
         ref={scrollContainerRef}
-        className="h-[calc(100%-2.5rem)] cursor-grab active:cursor-grabbing select-none snap-x snap-mandatory overflow-x-hidden touch-pan-x hide-scrollbar"
+        className="flex h-[calc(100%-2.5rem)] cursor-grab active:cursor-grabbing select-none snap-x snap-mandatory overflow-x-hidden touch-pan-x hide-scrollbar"
         onMouseDown={handleMouseDown}
         onMouseLeave={handleMouseLeave}
         onMouseUp={handleMouseUp}
@@ -88,13 +88,13 @@ const CardSlider = () => {
         onTouchMove={handleTouchMove}
         onTouchEnd={handleMouseUp}
       >
-        <div className="flex sm:h-full items-center">
+        <div className="flex items-center">
           {projectsData.map((project) => (
             <div 
               key={project.id}
-              className="w-full  flex-shrink-0 snap-center"
+              className="snap-center w-full"
             >
-              <div className="flex flex-col justify-center p-4 sm:p-6 md:p-8 overflow-y-auto hide-scrollbar pt-4">
+              <div className="flex flex-col w-[calc(100vw-32px)] justify-center p-4 sm:p-6 md:p-8 overflow-y-auto hide-scrollbar pt-4">
                 <h2 className="text-xl sm:text-2xl font-bold text-secondary mb-3 lg:mb-6 text-center">
                   {project.title}
                 </h2>
