@@ -34,7 +34,7 @@ const About = () => {
 
   return (
     <motion.div 
-      className="flex flex-col lg:h-fit h-[45vh] overflow-x-clip overflow-y-auto hide-scrollbar relative"
+      className="flex flex-col sm:h-fit h-[45vh] overflow-x-clip overflow-y-auto hide-scrollbar relative"
       variants={backdropVariants}
       initial="hidden"
       animate="visible"
@@ -50,7 +50,7 @@ const About = () => {
         animate="visible"
         whileInView={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1, ease: "linear" }}
-        className="text-blue-200 font-exo font-200 mt-2 mr-5 mb-4 text-sm sm:text-lg  tracking-wider"
+        className="text-blue-200 font-exo font-200 mt-2 mr-5 mb-4 text-sm lg:text-lg  tracking-wider"
       >
         <div>
           I&apos;m a{" "}

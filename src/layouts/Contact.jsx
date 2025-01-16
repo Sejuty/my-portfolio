@@ -5,43 +5,44 @@ const Contact = () => {
     {
       icon: <Mail size={16} color="#FF3F81" />,
       label: "Email",
-      value: "hello@example.com",
-      href: "mailto:hello@example.com",
+      value: "tafannumnishat00@gmail.com",
+      href: "mailto:tafannumnishat00@gmail.com",
     },
     {
       icon: <Linkedin size={16} color="#FF3F81" />,
       label: "LinkedIn",
-      value: "/in/yourname",
-      href: "https://linkedin.com/in/yourname",
+      value: "in/nishat-tafannum-92a13b1bb/",
+      href: "https://linkedin.com/in/nishat-tafannum-92a13b1bb/",
     },
     {
       icon: <Github size={16} color="#FF3F81" />,
       label: "GitHub",
-      value: "/username",
-      href: "https://github.com/username",
+      value: "/Sejuty",
+      href: "https://github.com/Sejuty",
     },
     {
       icon: <Phone size={16} color="#FF3F81" />,
       label: "Phone",
-      value: "+1 234 567 8900",
-      href: "tel:+12345678900",
+      value: "+880 1991-954786",
     },
   ];
 
   return (
-    <div className="min-h-screen w-full flex flex-col justify-end items-start p-4 sm:p-6 pb-0 md:p-8 lg:pl-12 gap-3 sm:gap-4 lg:gap-5">
+    <div className="h-full w-full flex flex-col justify-end items-start p-4 sm:p-6 md:p-8 lg:pl-12 gap-2 lg:gap-4">
       <div className="w-full">
         <h1 className="text-3xl sm:text-3xl md:text-4xl lg:text-[50px] text-secondary font-exo font-normal tracking-wide overflow-hidden animate-slide-right">
           Contact me!
         </h1>
       </div>
-      
-      <div className="w-full flex flex-col sm:flex-row flex-wrap gap-4 text-blue-200 text-sm sm:text-base font-exo my-4">
+
+      <div className="w-full flex flex-col sm:flex-row flex-wrap gap-4 text-blue-200 text-sm sm:text-base font-exo my-3 lg:my-4">
         {contacts.map((contact) => (
           <a
             key={contact.label}
             href={contact.href}
             className="flex items-center group hover:text-secondary transition-colors duration-200"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             <span className="text-gray-400 group-hover:text-secondary">
               {contact.icon}

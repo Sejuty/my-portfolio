@@ -64,7 +64,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="fixed top-4 right-6 z-10 transition-colors duration-300 bg-background/80">
+      <nav className="fixed top-4 right-6 z-30 transition-colors duration-300 bg-background/80 ">
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center py-4">
             <div className="flex space-x-6 sm:space-x-10 md:space-x-14 font-exo">

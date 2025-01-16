@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import  { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Twitter, Github } from 'lucide-react';
+
 
 const TypingIntro = () => {
   const [text, setText] = useState([]);
@@ -9,7 +9,7 @@ const TypingIntro = () => {
   
   const fullText = [
     "I enjoy sharing my knowledge of web development through content to help others in the dev community. Connect with me on ",
-    "Twitter",
+    "LinkedIn",
     " and ",
     "GitHub",
     " where I post helpful tips and resources about web development and programming. I'm open to job opportunities where I can contribute, learn, and grow. If you have a role that matches my skills, feel free to reach out!"
@@ -59,21 +59,20 @@ const TypingIntro = () => {
     return () => clearInterval(typingInterval);
   }, [startTyping]);
 
-  const SocialLink = ({ href, children, icon: Icon, isVisible }) => (
+  const SocialLink = ({ href, children, isVisible }) => (
     <a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className={`inline-flex items-center text-blue-400  hover:font-400 transition-colors text-sm sm:text-lg ${
+      className={`inline-flex items-center text-blue-400  hover:font-400 transition-colors text-sm lg:text-lg ${
         isVisible ? 'cursor-pointer' : 'pointer-events-none'
       }`}
-    >
-      {isVisible && <Icon className="w-2.5 sm:w-4 h-2.5 sm:h-4 mr-1" />}
+    > 
       {children}
     </a>
   );
 
-  const isTwitterComplete = text[1] === "Twitter";
+  const isLinkedInComplete = text[1] === "LinkedIn";
   const isGithubComplete = text[3] === "GitHub";
 
   return (
@@ -84,19 +83,19 @@ const TypingIntro = () => {
         transition={{ duration: 0.2 }}
         className="text-blue-200 font-exo font-200 tracking-wide"
       >
-        <p className="text-sm sm:text-lg leading-relaxed break-words">
+        <p className="text-sm lg:text-lg leading-relaxed break-words">
           {text[0]}
           <SocialLink 
-            href="https://twitter.com/yourusername" 
-            icon={Twitter}
-            isVisible={isTwitterComplete}
+            href="https://www.linkedin.com/in/nishat-tafannum-92a13b1bb/" 
+           
+            isVisible={isLinkedInComplete}
           >
             {text[1] || ''}
           </SocialLink>
           {text[2] || ''}
           <SocialLink 
-            href="https://github.com/yourusername" 
-            icon={Github}
+            href="https://github.com/Sejuty" 
+           
             isVisible={isGithubComplete}
           >
             {text[3] || ''}
