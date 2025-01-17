@@ -92,7 +92,7 @@ const CardSlider = () => {
           {projectsData.map((project) => (
             <div 
               key={project.id}
-              className="snap-center w-full"
+              className="snap-center w-full h-full 2xl:h-fit"
             >
               <div className="flex flex-col w-[calc(100vw-32px)] justify-center p-4 sm:p-6 md:p-8 overflow-y-auto hide-scrollbar pt-4">
                 <h2 className="text-xl sm:text-2xl font-bold text-secondary mb-3 lg:mb-6 text-center">
